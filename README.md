@@ -1,5 +1,5 @@
 # rendertheme-color-out
-A simple Java based application that analyzes MapsForge rendertheme XML and collects the used colors into an HTML file.
+A simple Java based application that analyzes MapsForge rendertheme XML's and collects the used colors into a viewable HTML file.
 
 | Build                                                        | Code coverage                                                |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
