@@ -9,9 +9,9 @@ public class RuleData {
 
 	private String e;
 	private List<String> k;
-	private Map<String, Param> params;
+	private Map<String, Param> params = new HashMap<>();
 	private String type; // Area, caption, etc
-	private List<String> v;
+	private List<String> v = new ArrayList<>();
 
 	public String getE() {
 		return e;
@@ -22,9 +22,6 @@ public class RuleData {
 	}
 
 	public Map<String, Param> getParams() {
-		if (params == null) {
-			params = new HashMap<>();
-		}
 		return params;
 	}
 
@@ -33,9 +30,6 @@ public class RuleData {
 	}
 
 	public List<String> getV() {
-		if (v == null) {
-			v = new ArrayList<>();
-		}
 		return v;
 	}
 
@@ -45,10 +39,6 @@ public class RuleData {
 
 	public void setK(List<String> k) {
 		this.k = k;
-	}
-
-	public void setParams(Map<String, Param> params) {
-		this.params = params;
 	}
 
 	public void setType(String type) {

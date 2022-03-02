@@ -11,12 +11,12 @@ import org.w3c.dom.NodeList;
 import hu.szrnkapeter.rendertheme.model.Param;
 import hu.szrnkapeter.rendertheme.model.RuleData;
 
-public class XmlProcessorService {
+public final class XmlProcessorService {
 	
 	private static final String AREA = "AREA";
 	private static final String CAPTION = "CAPTION";
 	private static final String LINE = "LINE";
-	private static List<RuleData> ruleDataList = new ArrayList<>();
+	static List<RuleData> ruleDataList = new ArrayList<>();
 	
 	public static List<RuleData> getRules(NodeList nList) {
 		getRule(nList, 0);
@@ -40,7 +40,7 @@ public class XmlProcessorService {
 				rule.setK(Arrays.asList(eElement.getAttribute("k").split("\\|")));
 				rule.setV(Arrays.asList(eElement.getAttribute("v").split("\\|")));
 
-				getTextAttribute("RULE", hasData, rule, eElement, "zoom-min");
+				getAttribute("RULE", hasData, rule, eElement, "zoom-min");
 
 				final NodeList newNl = eElement.getElementsByTagName("rule");
 				if (newNl != null && newNl.getLength() > 0) {
@@ -50,8 +50,8 @@ public class XmlProcessorService {
 					final Element area = (Element) eElement.getElementsByTagName("area").item(0);
 					if (area != null) {
 						final boolean hasAnyParameter = false;
-						getColorAttribute(AREA, hasAnyParameter, rule, area, "fill");
-						getColorAttribute(AREA, hasAnyParameter, rule, area, "stroke");
+						getAttribute(AREA, hasAnyParameter, rule, area, "fill");
+						getAttribute(AREA, hasAnyParameter, rule, area, "stroke");
 						rule.setType(AREA);
 						hasData = true;
 					}
@@ -60,11 +60,11 @@ public class XmlProcessorService {
 					final Element caption = (Element) eElement.getElementsByTagName("caption").item(0);
 					if (caption != null) {
 						final boolean hasAnyParameter = false;
-						getColorAttribute(CAPTION, hasAnyParameter, rule, caption, "fill");
-						getColorAttribute(CAPTION, hasAnyParameter, rule, caption, "stroke");
-						getTextAttribute(CAPTION, hasAnyParameter, rule, caption, "font-size");
-						getTextAttribute(CAPTION, hasAnyParameter, rule, caption, "symbol-id");
-						getTextAttribute(CAPTION, hasAnyParameter, rule, caption, "k");
+						getAttribute(CAPTION, hasAnyParameter, rule, caption, "fill");
+						getAttribute(CAPTION, hasAnyParameter, rule, caption, "stroke");
+						getAttribute(CAPTION, hasAnyParameter, rule, caption, "font-size");
+						getAttribute(CAPTION, hasAnyParameter, rule, caption, "symbol-id");
+						getAttribute(CAPTION, hasAnyParameter, rule, caption, "k");
 						rule.setType(CAPTION);
 
 						hasData = true;
@@ -74,8 +74,8 @@ public class XmlProcessorService {
 					final Element line = (Element) eElement.getElementsByTagName("line").item(0);
 					if (line != null) {
 						final boolean hasAnyParameter = false;
-						getColorAttribute(LINE, hasAnyParameter, rule, line, "fill");
-						getColorAttribute(LINE, hasAnyParameter, rule, line, "stroke");
+						getAttribute(LINE, hasAnyParameter, rule, line, "fill");
+						getAttribute(LINE, hasAnyParameter, rule, line, "stroke");
 						rule.setType(LINE);
 
 						hasData = true;
@@ -89,21 +89,12 @@ public class XmlProcessorService {
 		}
 	}
 	
-	private static void getTextAttribute(String type, boolean hasData, final RuleData rule, /*StringBuilder sb, */Element element, String elementName) {
+	private static void getAttribute(String type, boolean hasData, final RuleData rule, Element element, String elementName) {
 		if (element.getAttribute(elementName) == null || element.getAttribute(elementName).isEmpty()) {
 			return;
 		}
 
 		hasData = true;
-		rule.getParams().put(elementName, new Param(type, element.getAttribute(elementName)));
-	}
-	
-	private static void getColorAttribute(String type, boolean hasAnyParameter, final RuleData rule, Element element, String elementName) {
-		if (element.getAttribute(elementName) == null || element.getAttribute(elementName).isEmpty()) {
-			return;
-		}
-
-		hasAnyParameter = true;
 		rule.getParams().put(elementName, new Param(type, element.getAttribute(elementName)));
 	}
 }

@@ -9,7 +9,7 @@ import org.apache.velocity.app.VelocityEngine;
 
 import hu.szrnkapeter.rendertheme.model.RuleData;
 
-public class OutputBuilderService {
+public interface OutputBuilderService {
 
 	public static String buildOutput(List<RuleData> ruleDataList, String template) {
 		VelocityEngine velocityEngine = new VelocityEngine();

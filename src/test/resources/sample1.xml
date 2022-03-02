@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rendertheme>
+
+	<rule e="way" k="natural" v="issea|sea">
+        <area fill="#B3DDFF" />
+    </rule>
+
+    <rule e="way" k="natural" v="nosea">
+        <area fill="#F8F8F8" stroke="#F8F8F8" stroke-width="1.0" />
+    </rule>
+</rendertheme>

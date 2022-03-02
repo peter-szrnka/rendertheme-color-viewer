@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<style type="text/css">
+		* {
+			font-family: sans-serif;
+		}
+		body {
+			background-color: #ddd;
+		}
+		table {
+			width: 100%;
+			border: 1px solid #000;
+			background-color: #fff;
+		}
+		
+		th {
+			background-color: #000;
+			color: #fff;
+		}
+		
+		tr, th, td {
+			border: 1px solid #000;
+			padding: 2px;
+		}
+	</style>
+</head>
+<body>
+	<table>
+		<tr>
+			<th width="5%">E</th>
+			<th width="20%">K</th>
+			<th width="15%">V</th>
+			<th width="%20">Type</th>
+			<th width="40%">Values</th>
+		</tr>
+		#foreach( $ruleData in $ruleDataList )
+		<tr>
+			<td>$ruleData.e</td>
+			<td>
+				<ul>
+				#foreach( $kValue in $ruleData.k )
+					<li>$kValue</li>
+				#end
+				</ul>
+			</td>
+			<td>
+				<ul>
+				#foreach( $vValue in $ruleData.v )
+					<li>$vValue</li>
+				#end
+				</ul>
+			</td>
+			<td>$ruleData.type</td>
+			<td>
+				<ul>
+				#foreach( $entry in $ruleData.params.entrySet() )
+					<li>
+					#if ( $entry.key == "fill" || $entry.key == "stroke" )
+					$entry.key
+					<span style="width:24px;height:24px;border:1px dotted #000;display:inline-block;background-color:$entry.value.value"></span> $entry.value.value
+					#else
+					$entry.key - $entry.value.value
+					#end
+					</li>
+				#end
+				</ul>
+			</td>
+		</tr>
+		#end
+	</table>
+</body>
+</html>
