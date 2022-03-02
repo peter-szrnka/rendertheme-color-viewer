@@ -1,9 +1,9 @@
 # rendertheme-color-out
 A simple Java based application that analyzes MapsForge rendertheme XML's and collects the used colors into a viewable HTML file.
 
-| Build                                                        | Code coverage                                                |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| ![Build status](https://travis-ci.org/szrnka-peter/rendertheme-color-out.svg?branch=main) | [![codecov](https://codecov.io/gh/szrnka-peter/rendertheme-color-out/branch/main/graph/badge.svg)](https://codecov.io/gh/szrnka-peter/rendertheme-color-out) |
+| CodeQL                                                        | Code coverage                                                |
+| ------------------------------------------------------------- | ------------------------------------------------------------ |
+| [![CodeQL](https://github.com/szrnka-peter/rendertheme-color-out/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/szrnka-peter/rendertheme-color-out/actions/workflows/codeql-analysis.yml) | [![Code coverage](https://github.com/szrnka-peter/rendertheme-color-out/actions/workflows/codecov.yaml/badge.svg)](https://github.com/szrnka-peter/rendertheme-color-out/actions/workflows/codecov.yaml) |
 
 ## Used technologies
 - Java 8
