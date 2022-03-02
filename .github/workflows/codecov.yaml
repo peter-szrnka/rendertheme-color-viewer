@@ -13,7 +13,7 @@ jobs:
         with:
           java-version: 11.0.x
       - name: Build with Maven
-        run: mvn test -Pcodecov jacoco:report
+        run: mvn clean install -Pcodecov
       - name: Upload to Codecov
         env:
           CODECOV_TOKEN: $
