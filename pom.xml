@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>hu.szrnkapeter.rendertheme</groupId>
-	<artifactId>rendertheme-color-out</artifactId>
+	<artifactId>rendertheme-color-viewer</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>MapsForge Rendertheme Color Output</name>
 
