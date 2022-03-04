@@ -3,7 +3,7 @@ A simple Java based application that analyzes MapsForge rendertheme XML's and co
 
 | CodeQL                                                        | Code coverage                                                |
 | ------------------------------------------------------------- | ------------------------------------------------------------ |
-| [![CodeQL](https://github.com/szrnka-peter/rendertheme-color-out/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/szrnka-peter/rendertheme-color-out/actions/workflows/codeql-analysis.yml) | [![Code coverage](https://github.com/szrnka-peter/rendertheme-color-out/actions/workflows/codecov.yaml/badge.svg)](https://github.com/szrnka-peter/rendertheme-color-out/actions/workflows/codecov.yaml) [![codecov](https://codecov.io/gh/szrnka-peter/rendertheme-color-out/branch/main/graph/badge.svg)](https://codecov.io/gh/szrnka-peter/rendertheme-color-out) |
+| [![CodeQL](https://github.com/szrnka-peter/rendertheme-color-viewer/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/szrnka-peter/rendertheme-color-viewer/actions/workflows/codeql-analysis.yml) | [![Code coverage](https://github.com/szrnka-peter/rendertheme-color-viewer/actions/workflows/codecov.yaml/badge.svg)](https://github.com/szrnka-peter/rendertheme-color-viewer/actions/workflows/codecov.yaml) [![codecov](https://codecov.io/gh/szrnka-peter/rendertheme-color-viewer/branch/main/graph/badge.svg)](https://codecov.io/gh/szrnka-peter/rendertheme-color-viewer) |
 
 ## Used technologies
 - Java 8
