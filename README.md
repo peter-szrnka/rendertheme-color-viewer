@@ -1,4 +1,4 @@
-# rendertheme-color-out
+# rendertheme-color-viewer
 A simple Java based application that analyzes MapsForge rendertheme XML's and collects the used colors into a viewable HTML file.
 
 | CodeQL                                                        | Code coverage                                                |
