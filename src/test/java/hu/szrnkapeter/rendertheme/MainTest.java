@@ -1,25 +1,35 @@
 package hu.szrnkapeter.rendertheme;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 import org.junit.jupiter.api.Test;
 
-public class MainTest {
+class MainTest {
 
 	@Test
-	public void testMissingParameters() {
+	void testMissingParameters() {
 		String[] params = new String[0];
 
-		assertThrows(RuntimeException.class, () -> Main.main(params));
+		// act & assert
+		IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> Main.main(params));
+		assertEquals("Please provide a file path!", exception.getMessage());
 	}
 
 	@Test
-	public void testOnly1Parameter() throws Exception {
+	void testOnly1Parameter() throws Exception {
 		String[] params = new String[] { "src/test/resources/osmarender-test.xml" };
-		
+
+		// act
 		Main.main(params);
+
+		// assert
+		assertTrue(Files.exists(Paths.get("out.html")));
 
 		// Cleanup
 		new File("out.html").deleteOnExit();
@@ -28,10 +38,14 @@ public class MainTest {
 	//
 
 	@Test
-	public void testWith2Parameters() throws Exception {
+	void testWith2Parameters() throws Exception {
 		String[] params = new String[] { "src/test/resources/osmarender-test.xml", "src/test/resources/test-template.html" };
 
+		// act
 		Main.main(params);
+
+		// assert
+		assertTrue(Files.exists(Paths.get("out.html")));
 
 		// Cleanup
 		new File("out.html").deleteOnExit();

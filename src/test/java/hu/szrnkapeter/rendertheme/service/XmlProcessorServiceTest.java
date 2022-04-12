@@ -1,5 +1,6 @@
 package hu.szrnkapeter.rendertheme.service;
 
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -17,11 +18,17 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import hu.szrnkapeter.rendertheme.model.RuleData;
+import hu.szrnkapeter.rendertheme.util.TestUtils;
 
 /**
  * Unit test of {@link XmlProcessorService}
  */
-public class XmlProcessorServiceTest {
+class XmlProcessorServiceTest {
+	
+	@Test
+	void testPrivateConstructor() {
+		assertDoesNotThrow(() -> TestUtils.testPrivateConstructor(XmlProcessorService.class));
+	}
 	
 	@AfterEach
 	@BeforeEach
@@ -30,7 +37,7 @@ public class XmlProcessorServiceTest {
 	}
 
 	@Test
-	public void testNodeListNull() {
+	void testNodeListNull() {
 		NodeList input = null;
 		List<RuleData> result = XmlProcessorService.getRules(input);
 		
@@ -39,7 +46,7 @@ public class XmlProcessorServiceTest {
 	}
 	
 	@Test
-	public void testNodeListEmpty() {
+	void testNodeListEmpty() {
 		NodeList input = null;
 		List<RuleData> result = XmlProcessorService.getRules(input);
 
@@ -48,7 +55,7 @@ public class XmlProcessorServiceTest {
 	}
 	
 	@Test
-	public void testNodeListHasOnlyAttributeNode() {
+	void testNodeListHasOnlyAttributeNode() {
 		NodeList input = Mockito.mock(NodeList.class);
 		Mockito.when(input.getLength()).thenReturn(1);
 		
@@ -63,7 +70,7 @@ public class XmlProcessorServiceTest {
 	}
 	
 	@Test
-	public void testNodeListHasElementWithNoParams() {
+	void testNodeListHasElementWithNoParams() {
 		NodeList input = Mockito.mock(NodeList.class);
 		Mockito.when(input.getLength()).thenReturn(1);
 		
@@ -89,19 +96,19 @@ public class XmlProcessorServiceTest {
 
 		assertNotNull(result);
 		assertFalse(result.isEmpty());
-		assertEquals(result.size(), 1);
+		assertEquals(1, result.size());
 		
 		RuleData ruleData = result.get(0);
 		
 		assertEquals("eValue", ruleData.getE());
-		assertEquals(ruleData.getK().size(), 2);
-		assertEquals(ruleData.getV().size(), 2);
+		assertEquals(2, ruleData.getK().size());
+		assertEquals(2, ruleData.getV().size());
 		assertEquals("CAPTION", ruleData.getType());
 		assertTrue(ruleData.getParams().isEmpty());
 	}
 	
 	@Test
-	public void testNodeListHasElementWithParams() {
+	void testNodeListHasElementWithParams() {
 		NodeList input = Mockito.mock(NodeList.class);
 		Mockito.when(input.getLength()).thenReturn(1);
 		
@@ -129,13 +136,13 @@ public class XmlProcessorServiceTest {
 
 		assertNotNull(result);
 		assertFalse(result.isEmpty());
-		assertEquals(result.size(), 1);
+		assertEquals(1, result.size());
 		
 		RuleData ruleData = result.get(0);
 		
 		assertEquals("eValue", ruleData.getE());
-		assertEquals(ruleData.getK().size(), 2);
-		assertEquals(ruleData.getV().size(), 2);
+		assertEquals(2, ruleData.getK().size());
+		assertEquals(2, ruleData.getV().size());
 		assertEquals("CAPTION", ruleData.getType());
 		assertFalse(ruleData.getParams().isEmpty());
 		

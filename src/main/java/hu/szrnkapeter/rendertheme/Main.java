@@ -23,10 +23,10 @@ public class Main {
 	
 	public void execute(String[] args) throws IOException, SAXException, ParserConfigurationException {
 		if (args.length < 1) {
-			throw new RuntimeException("Please provide a file path!");
+			throw new IllegalArgumentException("Please provide a file path!");
 		}
 		
-		String templatePath = "src/main/resources/output-template.html";
+		String templatePath = "src/main/resources/output-template.tpl";
 		if (args.length == 2) {
 			templatePath = args[1];
 		}

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<title>Rendertheme color map</title>
 	<meta charset="utf-8">
 	<style type="text/css">
 		* {
@@ -28,6 +29,7 @@
 </head>
 <body>
 	<table>
+		<caption>Rendertheme rule data</caption>
 		<tr>
 			<th width="5%">E</th>
 			<th width="20%">K</th>
