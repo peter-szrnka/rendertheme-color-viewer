@@ -15,10 +15,10 @@ import hu.szrnkapeter.rendertheme.util.TestUtils;
 /**
  * Unit test of {@link OutputBuilderService}
  */
-public class OutputBuilderServiceTest {
+class OutputBuilderServiceTest {
 
 	@Test
-	public void testEmptyRuleDataList() throws IOException {
+	void testEmptyRuleDataList() throws IOException {
 		List<RuleData> ruleDataList = new ArrayList<>();
 		String result = OutputBuilderService.buildOutput(ruleDataList, "src/main/resources/output-template.html");
 		

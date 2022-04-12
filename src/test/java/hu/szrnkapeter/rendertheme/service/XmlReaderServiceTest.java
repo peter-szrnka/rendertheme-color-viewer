@@ -15,15 +15,15 @@ import org.w3c.dom.NodeList;
 /**
  * Unit test of {@link XmlReaderService}
  */
-public class XmlReaderServiceTest {
+class XmlReaderServiceTest {
 
 	@Test
-	public void testFileMissing() {
+	void testFileMissing() {
 		assertThrows(FileNotFoundException.class, () -> XmlReaderService.getNodeList(new File("src/test/resources/sample0.xml")));
 	}
 	
 	@Test
-	public void testSuccess() throws Exception {
+	void testSuccess() throws Exception {
 		URL resource = getClass().getClassLoader().getResource("sample1.xml");
 		NodeList result = XmlReaderService.getNodeList(new File(resource.toURI()));
 		assertNotNull(result);
