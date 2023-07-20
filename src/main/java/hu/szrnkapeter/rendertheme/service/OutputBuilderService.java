@@ -13,6 +13,8 @@ public interface OutputBuilderService {
 
 	public static String buildOutput(List<RuleData> ruleDataList, String template) {
 		VelocityEngine velocityEngine = new VelocityEngine();
+		velocityEngine.setProperty("resource.loader", "class");
+		velocityEngine.setProperty("class.resource.loader.class", "org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader");
 		velocityEngine.init();
 		   
 		Template t = velocityEngine.getTemplate(template);
