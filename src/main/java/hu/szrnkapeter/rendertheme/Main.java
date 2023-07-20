@@ -26,7 +26,7 @@ public class Main {
 			throw new IllegalArgumentException("Please provide a file path!");
 		}
 		
-		String templatePath = "src/main/resources/output-template.tpl";
+		String templatePath = "output-template.tpl";
 		if (args.length == 2) {
 			templatePath = args[1];
 		}

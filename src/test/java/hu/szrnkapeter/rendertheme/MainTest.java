@@ -39,7 +39,7 @@ class MainTest {
 
 	@Test
 	void testWith2Parameters() throws Exception {
-		String[] params = new String[] { "src/test/resources/osmarender-test.xml", "src/test/resources/test-template.html" };
+		String[] params = new String[] { "src/test/resources/osmarender-test.xml", "test-template.html" };
 
 		// act
 		Main.main(params);
