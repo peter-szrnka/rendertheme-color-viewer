@@ -26,11 +26,7 @@ public class Main {
 			throw new IllegalArgumentException("Please provide a file path!");
 		}
 		
-		String templatePath = "output-template.tpl";
-		if (args.length == 2) {
-			templatePath = args[1];
-		}
-
+		String templatePath = (args.length == 2) ? args[1] : "output-template.tpl";
 		List<RuleData> ruleDataList = XmlProcessorService.getRules(XmlReaderService.getNodeList(new File(args[0])));
 		
 		try(BufferedWriter bw = new BufferedWriter(new FileWriter(new File("out.html")))) {
