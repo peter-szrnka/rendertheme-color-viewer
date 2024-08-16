@@ -1,6 +1,7 @@
 name: Code coverage
 
 on:
+  workflow_dispatch:
   pull_request:
   push:
 jobs:
